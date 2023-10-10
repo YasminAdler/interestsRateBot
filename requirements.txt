@@ -1,0 +1,10 @@
+langchain==0.0.272
+Flask-Cors==4.0.0
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+SQLAlchemy==2.0.20
+openai==0.27.9
+python-dotenv==0.19.1
+psycopg2-binary==2.9.7
+twilio==6.50.1
+pandas==2.1.1

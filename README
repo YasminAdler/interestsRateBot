@@ -1,0 +1,23 @@
+Financial Advice Chatbot
+Introduction: 
+Welcome to the Financial Advice Chatbot project. This chatbot is designed to provide financial advice on savings accounts based on data from banks in Israel. It's created with a primary focus on the Hebrew language.
+
+Installation and Setup:
+Backend Folder: Ensure you insert the provided code into the backend folder. The structure of the code assumes that all functionalities are located inside this folder.
+Install the required libraries mentioned in the requirements.txt
+
+Data Source: 
+The data for this chatbot is derived from an attached CSV file, which contains interest details of all banks in Israel.
+
+Features:
+Bank Recommendation: The bot suggests the most suitable bank for a given amount.
+Final Amount Calculation: For a specified duration, the bot calculates the final amount, including interest.
+Financial Literacy: The bot educates users on the importance of savings accounts, providing insights into why they are crucial.
+Demonstration
+A demonstration video has been attached to provide a clear understanding of how the bot functions. We recommend watching the video before interacting with the chatbot for the first time.
+
+Usage:
+Once you have set up the bot, initiate a conversation, and ask about savings accounts, interest rates, and bank recommendations. The chatbot is intuitive and will guide you through the process.
+
+Conclusion:
+I hope this chatbot serves you well in understanding the best financial choices regarding savings accounts in Israel. Your feedback is invaluable; please let us know how we can improve or if there are additional features you'd like to see.
