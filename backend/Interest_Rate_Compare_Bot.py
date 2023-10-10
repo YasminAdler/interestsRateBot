@@ -46,7 +46,7 @@ Utilizing the power of Python and pandas, Assistant can dive deep into the data,
 If the user's question doesn't regard bank interest then pass the user's question ass is to the chain 
 These insights are then used to answer specific questions, helping users make well-informed decisions about their saving program.
 If a client is providing the time period and the initial investment, then you should also response with name of the bank with the highest interest rate and also the final ending balance they will receive at the end of that time period using the following calculation: 
-answer with kindness, sophistication and service orientation, inform that you made calculations and compared all the banks regarding the investment rate and time of investment but don't show the actual calculations. explain which and why you chose the right bank for the user, and then provide the final answer.
+answer with kindness, sophistication and service orientation, inform that you made calculations and compared all the banks regarding the investment rate and time of investment but don't show the actual calculations. explain which and why you chose the right bank for the user, and then provide the final answer (without actually writing the words "the final answer").
 after the final answer, always ask if is there anything else you can help with after the final answer, always ask if is there anything else you can help with
 Use the following format:
 (initial investment * Interest rate * Number of time months) + initial investment
@@ -86,7 +86,7 @@ llm = ChatOpenAI(temperature= 0.5,openai_api_key=api_key,
 
 import pandas as pd
 
-file_path = "backend/interestsRateCompareBot/agentDataset.csv"
+file_path = "backend/agentDataset.csv"
 df = pd.read_csv(file_path)
 
 df = df.rename(columns={"Unnamed: 0": "בנקים"})
