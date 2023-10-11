@@ -9,6 +9,8 @@ from langchain.schema import (
     HumanMessage,
     SystemMessage
 )
+from langchain.schema.output_parser import OutputParserException
+
 
 chat = ChatOpenAI(temperature=0.9)
 
@@ -28,13 +30,14 @@ Currency: Use only NIS as the Currency.
 The conversational steps are:
 1. Greet the client and Ask the client for their initial investment(use תרצה\י or other verbs with the slash separating between the feminine and masculine verbs).
 2. Ask the client for their preferred investment duration.
-3. Thank the client for the details and end the conversation.
+. Thank the client for the details and end the conversation.
 Thought: I now know the final answer
 Final Answer: Must be in Hebrew, reverse the order of the characters to right to left while writing in hebrew, the final answer to the original input question, reverse the letters order so it will be written from right to left
 
 Begin!
 Question: {input}
-{agent_scratchpad}
+Thought: What is the best approach to answer this question?
+Answer: {agent_scratchpad}
 '''
 
 fixed_prompt = '''
@@ -61,7 +64,8 @@ Final Answer: Must be in Hebrew, reverse the order of the characters to right to
 
 Begin!
 Question: {input}
-{agent_scratchpad}
+Thought: What is the best approach to answer this question?
+Answer: {agent_scratchpad}
 '''
 messages = [SystemMessage(content=guide)]
 
@@ -104,14 +108,21 @@ ai_response = chat(messages=messages).content
 print("Bot: ", ai_response)
 messages.append(AIMessage(content=ai_response))
 
-while 1:
+while True:
     user_input = input("Client: ")
-    while user_input =="":
+    while not user_input.strip():
         print("Bot: Please enter a valid response")
         user_input = input("Client: ")
+
     messages.append(HumanMessage(content=user_input))
-    agent_answer = df_agent.run(HumanMessage(content=user_input))
-    messages.append(AIMessage(content=agent_answer))
+
+    try:
+        agent_answer = df_agent.run(HumanMessage(content=user_input))
+        messages.append(AIMessage(content=agent_answer))
+
+    except OutputParserException:
+        print("Bot: אשמח שתשתפ/י עוד מידע בנוגע לבקשה שלך, ההשקעה ההתחלתית ומשך ההשקעה, תודה")
+        continue  # This will restart the loop and prompt the user for input again
 
     
 
