@@ -121,7 +121,7 @@ while True:
         messages.append(AIMessage(content=agent_answer))
 
     except OutputParserException:
-        print("Bot: אשמח שתשתפ/י עוד מידע בנוגע לבקשה שלך, ההשקעה ההתחלתית ומשך ההשקעה, תודה")
+        print("Bot: לא בטוח מה כוונתך, אשמח שתשתפ/י עוד מידע בנוגע לבקשה שלך, ההשקעה ההתחלתית ומשך ההשקעה, תודה")
         continue  # This will restart the loop and prompt the user for input again
 
     
