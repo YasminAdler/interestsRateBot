@@ -3,7 +3,6 @@ Introduction:
 Welcome to the Financial Advice Chatbot project. This chatbot is designed to provide financial advice on savings accounts based on data from banks in Israel. It's created with a primary focus on the Hebrew language.
 
 Installation and Setup:
-Backend Folder: Ensure you insert the provided code into the backend folder. The structure of the code assumes that all functionalities are located inside this folder.
 Install the required libraries mentioned in the requirements.txt
 
 Data Source: 
