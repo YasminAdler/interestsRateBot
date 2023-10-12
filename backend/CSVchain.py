@@ -30,7 +30,7 @@ messages_list = []
 
 while True:
     user_input = input("User: ")
-    if user_input.lower() in ["exit", "quit"]:
+    if user_input.lower() in ["exit", "quit", "צא", "סיים"]:
         break
 
     messages_list.append(SystemMessage(content=prompt_template.format(df_head=df_head)))
