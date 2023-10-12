@@ -6,8 +6,8 @@ api_key = "open_AI_key"
 # from dotenv import load_dotenv
 # load_dotenv()
 # api_key = os.getenv('OPENAI_API_KEY')
-# if api_key is None:
-#     raise ValueError("API Key not set in environment variables")
+if api_key is None:
+    raise ValueError("API Key not set in environment variables")
 
 import pandas as pd
 from langchain.chat_models import ChatOpenAI
