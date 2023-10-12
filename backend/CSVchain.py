@@ -1,30 +1,31 @@
-# 1. Setup
 import os
+
+api_key = "open_AI_key"
+
+
+# from dotenv import load_dotenv
+# load_dotenv()
+# api_key = os.getenv('OPENAI_API_KEY')
+# if api_key is None:
+#     raise ValueError("API Key not set in environment variables")
+
 import pandas as pd
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
 
-# Load the API Key
-api_key = os.environ.get('OPENAI_API_KEY')
-if api_key is None:
-    raise ValueError("API Key not set in environment variables")
 
-# Load CSV into a dataframe
 file_path = "backend/agentDataset.csv"
 df = pd.read_csv(file_path)
 df_head = df.head().to_string()
 
-# 2. Integrate CSV data with LLMChain
-# Prepare a custom prompt using CSV data
 prompt_template = '''
 Your CSV data is as follows:
 {df_head}
-
+get as much details as you can from the user, initial investment, time of investment, preferred bank etc
 Given this data, how can I assist you?
 '''
 
 llm = ChatOpenAI(temperature=0.5, openai_api_key=api_key, model="gpt-4")
-# Create an empty list for messages
 messages_list = []
 
 while True:
@@ -32,7 +33,6 @@ while True:
     if user_input.lower() in ["exit", "quit"]:
         break
 
-    # Add messages to the list
     messages_list.append(SystemMessage(content=prompt_template.format(df_head=df_head)))
     messages_list.append(HumanMessage(content=user_input))
     
@@ -43,4 +43,4 @@ while True:
         print("An error occurred:", e)
         break
 
-print("Goodbye!")
+print("להתראות!")

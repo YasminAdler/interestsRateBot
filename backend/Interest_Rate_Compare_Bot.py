@@ -1,7 +1,5 @@
 import os
-api_key = os.environ.get('OPENAI_API_KEY')
-if api_key is None:
-    raise ValueError("API Key not set in environment variables")
+api_key = "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"
 
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import (
@@ -12,7 +10,6 @@ from langchain.schema import (
 from langchain.schema.output_parser import OutputParserException
 
 
-chat = ChatOpenAI(temperature=0.9)
 
 guide = '''
 Assistant is a sophisticated language model developed by OpenAI,ust be in Hebrew, reverse the order of the characters to right to left while writing in hebrew, the final answer to the original input question, reverse the letters order so it will be written from right to left geared towards assisting users with diverse needs.
@@ -76,7 +73,6 @@ from langchain.agents import create_pandas_dataframe_agent
 
 from langchain.agents import create_csv_agent
 
-api_key = "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"
 
 llm = ChatOpenAI(temperature= 0.5,openai_api_key=api_key,
                  model="gpt-4",
@@ -102,7 +98,7 @@ df_agent = create_pandas_dataframe_agent(
 )
 
 df_agent.agent.llm_chain.prompt.template = fixed_prompt
-ai_response = chat(messages=messages).content
+ai_response = llm(messages=messages).content
 print("Bot: ", ai_response)
 messages.append(AIMessage(content=ai_response))
 
@@ -120,9 +116,4 @@ while True:
 
     except OutputParserException:
         print("Bot: לא בטוח מה כוונתך, אשמח שתשתפ/י עוד מידע בנוגע לבקשה שלך, ההשקעה ההתחלתית ומשך ההשקעה, תודה")
-        continue  # This will restart the loop and prompt the user for input again
-
-    
-
-
-    
+        continue  # This will restart the loop and prompt the user for input again
