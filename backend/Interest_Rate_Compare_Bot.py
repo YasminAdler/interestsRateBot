@@ -76,9 +76,7 @@ from langchain.agents import create_pandas_dataframe_agent
 
 from langchain.agents import create_csv_agent
 
-api_key = os.environ.get('OPENAI_API_KEY')
-if api_key is None:
-    raise ValueError("API Key not set in environment variables")
+api_key = "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"
 
 llm = ChatOpenAI(temperature= 0.5,openai_api_key=api_key,
                  model="gpt-4",
