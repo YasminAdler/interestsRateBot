@@ -5,6 +5,9 @@ Welcome to the Financial Advice Chatbot project. This chatbot is designed to pro
 Installation and Setup:
 Install the required libraries mentioned in the requirements.txt
 
+ForCSVchain:
+Insert your proper openAIkey in line number 3
+
 Data Source: 
 The data for this chatbot is derived from an attached CSV file, which contains interest details of all banks in Israel.
 
